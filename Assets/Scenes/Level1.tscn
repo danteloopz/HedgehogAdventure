@@ -1,0 +1,188 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/SolidTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Scenes/Hedgehog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/OneWayTileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/Background/background_0010.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Scenes/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sprites/HUD/Health/tile_0044.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/HUD/Coins/tile_0151.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/FFFFORWA.TTF" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Scripts/HUD.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Scripts/Camera2D.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 782, 23 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.443137 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+font_data = ExtResource( 8 )
+
+[node name="Level1" type="Node2D"]
+
+[node name="Tiles One-way" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 18, 18 )
+collision_layer = 2
+collision_mask = 17
+format = 1
+
+[node name="Tiles Solid" type="TileMap" parent="."]
+scale = Vector2( 2.5, 2.5 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 18, 18 )
+collision_layer = 2
+collision_mask = 17
+format = 1
+tile_data = PoolIntArray( -1, 5, 0, 65535, 5, 0, 131071, 5, 0, 65569, 2, 0, 65570, 3, 0, 65571, 4, 0, 196607, 5, 0, 131089, 13, 0, 131090, 12, 0, 131091, 11, 0, 131092, 12, 0, 131093, 14, 0, 262143, 5, 0, 196627, 31, 0, 196637, 2, 0, 196638, 4, 0, 196648, 20, 0, 196649, 22, 0, 327679, 5, 0, 262154, 13, 0, 262155, 12, 0, 262156, 11, 0, 262157, 12, 0, 262158, 14, 0, 262163, 31, 0, 262168, 2, 0, 262169, 4, 0, 262184, 5, 0, 262185, 5, 0, 393215, 5, 0, 327692, 31, 0, 327699, 31, 0, 327720, 5, 0, 327721, 5, 0, 458751, 5, 0, 393216, 21, 0, 393217, 21, 0, 393218, 21, 0, 393219, 21, 0, 393220, 21, 0, 393221, 21, 0, 393222, 21, 0, 393223, 22, 0, 393228, 31, 0, 393235, 31, 0, 393256, 5, 0, 393257, 5, 0, 524287, 5, 0, 458752, 5, 0, 458753, 5, 0, 458754, 5, 0, 458755, 5, 0, 458756, 5, 0, 458757, 5, 0, 458758, 5, 0, 458759, 5, 0, 458764, 31, 0, 458771, 31, 0, 458792, 5, 0, 458793, 5, 0, 589823, 5, 0, 524288, 5, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 5, 0, 524300, 31, 0, 524307, 31, 0, 524328, 5, 0, 524329, 5, 0 )
+
+[node name="Hedgehog" parent="." instance=ExtResource( 2 )]
+position = Vector2( 145, 217 )
+scale = Vector2( -0.4, 0.4 )
+collision_mask = 30
+
+[node name="Camera2D" type="Camera2D" parent="Hedgehog"]
+position = Vector2( -1202.5, -512.5 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = 5
+limit_top = -350
+limit_right = 2000
+limit_bottom = 385
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.75
+drag_margin_right = 0.1
+editor_draw_limits = true
+script = ExtResource( 10 )
+
+[node name="ShiftTween" type="Tween" parent="Hedgehog/Camera2D"]
+
+[node name="Coins" type="Node2D" parent="."]
+position = Vector2( 1.52588e-05, 3.05176e-05 )
+
+[node name="Coin1" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 490, 150 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 560, 150 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 630, 150 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 800, 65 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 870, 65 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 940, 65 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Blue Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1270, 1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Blue Sky"]
+scale = Vector2( 53.2083, 31.5309 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1098, 448 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="Panel" type="Panel" parent="HUD"]
+margin_left = 413.0
+margin_top = 4.0
+margin_right = 625.0
+margin_bottom = 44.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Hearts" type="Node" parent="HUD/Panel"]
+
+[node name="Heart" type="TextureRect" parent="HUD/Panel/Hearts"]
+margin_left = 419.0
+margin_top = 5.0
+margin_right = 459.0
+margin_bottom = 45.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Heart2" type="TextureRect" parent="HUD/Panel/Hearts"]
+margin_left = 457.0
+margin_top = 5.0
+margin_right = 497.0
+margin_bottom = 45.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Heart3" type="TextureRect" parent="HUD/Panel/Hearts"]
+margin_left = 494.0
+margin_top = 5.0
+margin_right = 534.0
+margin_bottom = 45.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Coin" type="TextureRect" parent="HUD"]
+margin_left = 583.0
+margin_top = 5.0
+margin_right = 623.0
+margin_bottom = 45.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="x" type="Label" parent="HUD"]
+modulate = Color( 1, 0.752941, 0.168627, 1 )
+margin_left = 575.0
+margin_top = 14.0
+margin_right = 587.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 3 )
+text = "x"
+
+[node name="CoinsAmmount" type="Label" parent="HUD"]
+margin_left = 530.0
+margin_top = 12.0
+margin_right = 573.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 4 )
+text = "##"
+align = 2
+valign = 1
+
+[connection signal="grounded_updated" from="Hedgehog" to="Hedgehog/Camera2D" method="_on_Hedgehog_grounded_updated"]
+[connection signal="coin_collected" from="Coins/Coin1" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin2" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin3" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin4" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin5" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin6" to="HUD" method="_on_coin_collected"]
+[connection signal="body_entered" from="Area2D" to="Hedgehog" method="_on_Area2D_body_entered"]

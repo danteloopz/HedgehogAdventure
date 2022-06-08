@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/Characters/Hedgehog/Hedgehog_spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Assets/Scripts/Hedgehog.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 77.9629, 68.1521 )
+
+[node name="Hedgehog" type="KinematicBody2D"]
+position = Vector2( 0, -3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+jump_height = 100.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.4
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 1 )
+animation = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 20.5125, 50.0386 )
+rotation = -1.56224
+shape = SubResource( 1 )
