@@ -11,8 +11,13 @@ config_version=4
 [application]
 
 config/name="Hedgehog Adventure"
-run/main_scene="res://Assets/Scenes/TitleMenu.tscn"
+run/main_scene="res://Assets/Scenes/Intro.tscn"
+config/use_custom_user_dir=true
 config/icon="res://icon.png"
+
+[autoload]
+
+MusicController="*res://Assets/Autoloads/MusicController.tscn"
 
 [debug]
 
@@ -24,6 +29,7 @@ window/size/width=640
 window/size/height=360
 window/size/resizable=false
 window/size/fullscreen=true
+window/vsync/use_vsync=false
 window/stretch/mode="2d"
 
 [global]

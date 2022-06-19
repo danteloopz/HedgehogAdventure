@@ -7,18 +7,14 @@ var coins = 0
 var is_grounded
 
 const SPEED = 320
-const GRAVITY = 30
 
-export var jump_height : float
-export var jump_time_to_peak : float
-export var jump_time_to_descent : float
-
-onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
-onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
-onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+export var fallMultiplier = 2
+export var lowJumpMultiplier = 10
+export var jumpVelocity = 400
+export var gravity = 8
 
 func _process(delta):
-	velocity.y += _get_gravity() * delta
+	velocity.y += gravity
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
 		$Sprite.play("Walk")
@@ -30,6 +26,12 @@ func _process(delta):
 	else:
 		$Sprite.play("Idle")
 	
+	if velocity.y > 0: 
+		velocity += Vector2.UP * (-7.81) * (fallMultiplier) 
+
+	elif velocity.y < 0 && Input.is_action_just_released("ui_accept"): 
+		velocity += Vector2.UP * (-7.81) * (lowJumpMultiplier) 
+		
 	if not is_on_floor():
 		$Sprite.play("Air")
 	
@@ -39,19 +41,13 @@ func _process(delta):
 	
 	if was_grounded == null || is_grounded != was_grounded:
 		emit_signal("grounded_updated", is_grounded)
-	velocity.x = lerp(velocity.x,0,0.25)
+	velocity.x = lerp(velocity.x,0,0.3)
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		jump()
+		velocity = Vector2.UP * jumpVelocity
 	
 	if coins == 3: 
 		pass
-
-func _get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
-
-func jump():
-	velocity.y = jump_velocity
 	
 func add_coin():
 	coins = coins + 1

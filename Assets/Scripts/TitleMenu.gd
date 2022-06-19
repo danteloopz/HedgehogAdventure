@@ -9,7 +9,6 @@ var current_selection = 0
 
 
 func _ready():
-	$Music.play()
 	$VBoxContainer/PlayButton.grab_focus()
 	set_current_selection(0)
 
@@ -34,7 +33,7 @@ func set_current_selection(_current_selection):
 
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://Assets/Scenes/Level1.tscn")
+	$TransisionScreen.transition()
 
 
 func _on_SettingsButton_pressed():
@@ -44,3 +43,7 @@ func _on_SettingsButton_pressed():
 
 func _on_ExitButton_pressed():
 	get_tree().quit()
+
+
+func _on_TransisionScreen_transition_end():
+	get_tree().change_scene("res://Assets/Scenes/Level1.tscn")
