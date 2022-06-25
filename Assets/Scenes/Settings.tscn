@@ -1,16 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Fonts/FFFFORWA.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/Settings.gd" type="Script" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-outline_size = 4
-outline_color = Color( 0.498039, 0.352941, 0.27451, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 1 )
+[ext_resource path="res://Assets/SoundEffects/UI/Select.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Theme.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -20,82 +13,161 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 4
+outline_color = Color( 0.498039, 0.352941, 0.27451, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+outline_size = 4
+outline_color = Color( 0.498039, 0.352941, 0.27451, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+outline_size = 4
+outline_color = Color( 0.498039, 0.352941, 0.27451, 1 )
+font_data = ExtResource( 1 )
+
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 180 )
+theme = ExtResource( 4 )
 script = ExtResource( 2 )
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 640.0
-margin_bottom = 360.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -251, 0 )
 color = Color( 0.294118, 0.207843, 0.164706, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="GoBackToMenu2" type="Button" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 margin_left = -182.0
-margin_top = -167.0
+margin_top = -34.0
 margin_right = 182.0
-margin_bottom = 184.0
-custom_constants/separation = 56
-
-[node name="Settings" type="Label" parent="VBoxContainer"]
-margin_right = 364.0
-margin_bottom = 55.0
-custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Settings"
-align = 1
-
-[node name="Music" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 111.0
-margin_right = 364.0
-margin_bottom = 154.0
-custom_constants/separation = 5
-
-[node name="Music" type="Label" parent="VBoxContainer/Music"]
-margin_right = 364.0
-margin_bottom = 22.0
-custom_fonts/font = SubResource( 4 )
-text = "Music"
-align = 1
-valign = 1
-
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Music"]
-margin_top = 27.0
-margin_right = 364.0
-margin_bottom = 43.0
-
-[node name="SFX" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 210.0
-margin_right = 364.0
-margin_bottom = 253.0
-custom_constants/separation = 5
-
-[node name="SFX" type="Label" parent="VBoxContainer/SFX"]
-margin_right = 364.0
-margin_bottom = 22.0
-custom_fonts/font = SubResource( 4 )
-text = "SFX"
-align = 1
-valign = 1
-
-[node name="HSlider" type="HSlider" parent="VBoxContainer/SFX"]
-margin_top = 27.0
-margin_right = 364.0
-margin_bottom = 43.0
-
-[node name="GoBackToMenu" type="Button" parent="VBoxContainer"]
-margin_top = 309.0
-margin_right = 364.0
-margin_bottom = 343.0
 custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 text = "Go back to menu"
 flat = true
 
-[connection signal="pressed" from="VBoxContainer/GoBackToMenu" to="." method="_on_GoBackToMenu_pressed"]
+[node name="GoBackToMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SettingsTab" type="TabContainer" parent="HBoxContainer"]
+margin_bottom = 360.0
+
+[node name="Video" type="Tabs" parent="HBoxContainer/SettingsTab"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 31.0
+
+[node name="Video" type="Label" parent="HBoxContainer/SettingsTab/Video"]
+margin_left = 135.0
+margin_top = 33.0
+margin_right = 499.0
+margin_bottom = 146.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Video
+"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SettingsTab/Video"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 85.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="VideoSettings" type="GridContainer" parent="HBoxContainer/SettingsTab/Video/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 219.0
+margin_bottom = 219.0
+custom_constants/vseparation = 10
+columns = 2
+
+[node name="Fullscreen" type="Label" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_right = 157.0
+margin_bottom = 31.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
+text = "Fullscreen:"
+
+[node name="FullscreenOptionButton" type="OptionButton" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_left = 161.0
+margin_right = 194.0
+margin_bottom = 31.0
+size_flags_horizontal = 6
+text = "On"
+items = [ "On", null, false, 0, null, "Off", null, false, 1, null ]
+selected = 0
+
+[node name="Vsync" type="Label" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_top = 41.0
+margin_right = 157.0
+margin_bottom = 72.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Vsync"
+
+[node name="VsyncOptionButton" type="OptionButton" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_left = 161.0
+margin_top = 41.0
+margin_right = 194.0
+margin_bottom = 72.0
+size_flags_horizontal = 6
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+text = "On"
+items = [ "On", null, false, 0, null, "Off", null, false, 1, null ]
+selected = 0
+
+[node name="Audio" type="Tabs" parent="HBoxContainer/SettingsTab"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 31.0
+
+[node name="Audio" type="Label" parent="HBoxContainer/SettingsTab/Audio"]
+margin_left = 135.0
+margin_top = 33.0
+margin_right = 499.0
+margin_bottom = 146.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Audio
+"
+align = 1
+
+[node name="Controls" type="Tabs" parent="HBoxContainer/SettingsTab"]
+visible = false
+margin_right = 40.0
+margin_bottom = 24.0
+
+[node name="Controls" type="Label" parent="HBoxContainer/SettingsTab/Controls"]
+margin_left = 135.0
+margin_top = 34.0
+margin_right = 499.0
+margin_bottom = 147.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Controls
+"
+align = 1
+
+[connection signal="pressed" from="GoBackToMenu2" to="." method="_on_GoBackToMenu_pressed"]

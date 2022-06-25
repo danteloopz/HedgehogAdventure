@@ -9,6 +9,7 @@ var current_selection = 0
 
 
 func _ready():
+	Pause.is_pausable = false
 	$VBoxContainer/PlayButton.grab_focus()
 	set_current_selection(0)
 
@@ -33,15 +34,19 @@ func set_current_selection(_current_selection):
 
 
 func _on_PlayButton_pressed():
-	$TransisionScreen.transition()
+	SaveSystem.Load_GAME()
+	$Select.play()
+	$TransisionScreen.fadein()
 
 
 func _on_SettingsButton_pressed():
+	$Select.play()
 	var Settings = load("res://Assets/Scenes/Settings.tscn").instance()
 	get_tree().current_scene.add_child(Settings)
 
 
 func _on_ExitButton_pressed():
+	$Exit.play()
 	get_tree().quit()
 
 

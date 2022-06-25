@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Exit.wav-dc0b12cff78cce940b25a359968a4980.sample"
+path="res://.import/phone.wav-ee4364d9b21c5377e41746f7822dc9a2.sample"
 
 [deps]
 
-source_file="res://Assets/SoundEffects/Exit.wav"
-dest_files=[ "res://.import/Exit.wav-dc0b12cff78cce940b25a359968a4980.sample" ]
+source_file="res://Assets/SoundEffects/Others/phone.wav"
+dest_files=[ "res://.import/phone.wav-ee4364d9b21c5377e41746f7822dc9a2.sample" ]
 
 [params]
 

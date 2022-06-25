@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Tiles/tile_0027.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Scripts/Key.gd" type="Script" id=2]
+[ext_resource path="res://Assets/SoundEffects/Items/key.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9, 6 )
@@ -51,7 +52,7 @@ tracks/1/keys = {
 
 [node name="Key" type="Area2D"]
 scale = Vector2( 2, 2 )
-collision_layer = 0
+collision_layer = 8
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -65,6 +66,9 @@ root_node = NodePath("../Sprite")
 reset_on_save = false
 anims/Bounce = SubResource( 2 )
 anims/RESET = SubResource( 3 )
+
+[node name="CollectedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Key_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

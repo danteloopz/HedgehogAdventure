@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/FFFFORWA.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/TitleMenu.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Scenes/TransisionScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/SoundEffects/UI/Select.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/TransisionScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/SoundEffects/UI/exit.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -125,6 +127,12 @@ margin_right = 18.0
 margin_bottom = 34.0
 custom_fonts/font = SubResource( 6 )
 text = ">"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Exit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [node name="TransisionScreen" parent="." instance=ExtResource( 4 )]
 

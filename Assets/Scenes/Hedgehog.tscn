@@ -1,20 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Sprites/Characters/Hedgehog/Hedgehog_spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Assets/Scripts/Hedgehog.gd" type="Script" id=2]
+[ext_resource path="res://Assets/SoundEffects/Hedgehog/Jump.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 77.9629, 68.1521 )
+extents = Vector2( 51.2764, 67.9975 )
 
 [node name="Hedgehog" type="KinematicBody2D"]
 position = Vector2( 0, -3 )
+collision_mask = 62
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-jump_height = 100.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.4
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -22,7 +21,7 @@ frames = ExtResource( 1 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 20.5125, 50.0386 )
+position = Vector2( 20.4338, 77.3073 )
 rotation = -1.56224
 shape = SubResource( 1 )
 
@@ -33,3 +32,14 @@ amount = 25
 gravity = Vector2( 80, 0 )
 initial_velocity = 10.0
 scale_amount = 2.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

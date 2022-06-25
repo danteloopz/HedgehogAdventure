@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Jump.wav-60fc6a2322808e2d13f637e05a330235.sample"
+path="res://.import/Hurt.wav-951e653d867d6b6589d3b99ff50fade7.sample"
 
 [deps]
 
-source_file="res://Assets/SoundEffects/Jump.wav"
-dest_files=[ "res://.import/Jump.wav-60fc6a2322808e2d13f637e05a330235.sample" ]
+source_file="res://Assets/SoundEffects/Hedgehog/Hurt.wav"
+dest_files=[ "res://.import/Hurt.wav-951e653d867d6b6589d3b99ff50fade7.sample" ]
 
 [params]
 

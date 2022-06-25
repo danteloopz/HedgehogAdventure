@@ -2,10 +2,11 @@ extends Control
 
 
 func _ready():
-	pass
+	$HBoxContainer/SettingsTab/Video.grab_focus()
 
 
 func _on_GoBackToMenu_pressed():
+	$GoBackToMenu.play()
 	get_tree().change_scene("res://Assets/Scenes/TitleMenu.tscn")
 
 
