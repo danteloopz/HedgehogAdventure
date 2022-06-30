@@ -5,14 +5,6 @@
 [ext_resource path="res://Assets/SoundEffects/UI/Select.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Theme.tres" type="Theme" id=4]
 
-[sub_resource type="DynamicFont" id=2]
-size = 20
-outline_size = 4
-outline_color = Color( 0.498039, 0.352941, 0.27451, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 outline_size = 4
@@ -31,6 +23,14 @@ outline_size = 4
 outline_color = Color( 0.498039, 0.352941, 0.27451, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 4
+outline_color = Color( 0.498039, 0.352941, 0.27451, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,6 +43,113 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -251, 0 )
 color = Color( 0.294118, 0.207843, 0.164706, 1 )
+
+[node name="SettingsTab" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="Video" type="Tabs" parent="SettingsTab"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 31.0
+
+[node name="Video" type="Label" parent="SettingsTab/Video"]
+margin_left = 135.0
+margin_top = 33.0
+margin_right = 499.0
+margin_bottom = 146.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Video
+"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTab/Video"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 85.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="VideoSettings" type="GridContainer" parent="SettingsTab/Video/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 615.0
+margin_bottom = 219.0
+custom_constants/vseparation = 10
+columns = 2
+
+[node name="Fullscreen" type="Label" parent="SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_right = 157.0
+margin_bottom = 31.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
+text = "Fullscreen:"
+
+[node name="FullscreenOptionButton" type="OptionButton" parent="SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_left = 359.0
+margin_right = 392.0
+margin_bottom = 31.0
+size_flags_horizontal = 6
+text = "On"
+items = [ "On", null, false, 0, null, "Off", null, false, 1, null ]
+selected = 0
+
+[node name="Vsync" type="Label" parent="SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_top = 41.0
+margin_right = 157.0
+margin_bottom = 72.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Vsync"
+
+[node name="VsyncOptionButton" type="OptionButton" parent="SettingsTab/Video/MarginContainer/VideoSettings"]
+margin_left = 359.0
+margin_top = 41.0
+margin_right = 392.0
+margin_bottom = 72.0
+size_flags_horizontal = 6
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+text = "On"
+items = [ "On", null, false, 0, null, "Off", null, false, 1, null ]
+selected = 0
+
+[node name="Audio" type="Tabs" parent="SettingsTab"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 31.0
+
+[node name="Audio" type="Label" parent="SettingsTab/Audio"]
+margin_left = 135.0
+margin_top = 33.0
+margin_right = 499.0
+margin_bottom = 146.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Audio
+"
+align = 1
+
+[node name="Controls" type="Tabs" parent="SettingsTab"]
+visible = false
+margin_right = 40.0
+margin_bottom = 24.0
+
+[node name="Controls" type="Label" parent="SettingsTab/Controls"]
+margin_left = 135.0
+margin_top = 34.0
+margin_right = 499.0
+margin_bottom = 147.0
+custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Controls
+"
+align = 1
 
 [node name="GoBackToMenu2" type="Button" parent="."]
 anchor_left = 0.5
@@ -60,114 +167,5 @@ flat = true
 
 [node name="GoBackToMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="SettingsTab" type="TabContainer" parent="HBoxContainer"]
-margin_bottom = 360.0
-
-[node name="Video" type="Tabs" parent="HBoxContainer/SettingsTab"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 31.0
-
-[node name="Video" type="Label" parent="HBoxContainer/SettingsTab/Video"]
-margin_left = 135.0
-margin_top = 33.0
-margin_right = 499.0
-margin_bottom = 146.0
-custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Video
-"
-align = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SettingsTab/Video"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 85.0
-custom_constants/margin_right = 25
-custom_constants/margin_top = 25
-custom_constants/margin_left = 25
-custom_constants/margin_bottom = 25
-
-[node name="VideoSettings" type="GridContainer" parent="HBoxContainer/SettingsTab/Video/MarginContainer"]
-margin_left = 25.0
-margin_top = 25.0
-margin_right = 219.0
-margin_bottom = 219.0
-custom_constants/vseparation = 10
-columns = 2
-
-[node name="Fullscreen" type="Label" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
-margin_right = 157.0
-margin_bottom = 31.0
-theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 4 )
-text = "Fullscreen:"
-
-[node name="FullscreenOptionButton" type="OptionButton" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
-margin_left = 161.0
-margin_right = 194.0
-margin_bottom = 31.0
-size_flags_horizontal = 6
-text = "On"
-items = [ "On", null, false, 0, null, "Off", null, false, 1, null ]
-selected = 0
-
-[node name="Vsync" type="Label" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
-margin_top = 41.0
-margin_right = 157.0
-margin_bottom = 72.0
-custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
-custom_fonts/font = SubResource( 5 )
-text = "Vsync"
-
-[node name="VsyncOptionButton" type="OptionButton" parent="HBoxContainer/SettingsTab/Video/MarginContainer/VideoSettings"]
-margin_left = 161.0
-margin_top = 41.0
-margin_right = 194.0
-margin_bottom = 72.0
-size_flags_horizontal = 6
-theme = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
-text = "On"
-items = [ "On", null, false, 0, null, "Off", null, false, 1, null ]
-selected = 0
-
-[node name="Audio" type="Tabs" parent="HBoxContainer/SettingsTab"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 31.0
-
-[node name="Audio" type="Label" parent="HBoxContainer/SettingsTab/Audio"]
-margin_left = 135.0
-margin_top = 33.0
-margin_right = 499.0
-margin_bottom = 146.0
-custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Audio
-"
-align = 1
-
-[node name="Controls" type="Tabs" parent="HBoxContainer/SettingsTab"]
-visible = false
-margin_right = 40.0
-margin_bottom = 24.0
-
-[node name="Controls" type="Label" parent="HBoxContainer/SettingsTab/Controls"]
-margin_left = 135.0
-margin_top = 34.0
-margin_right = 499.0
-margin_bottom = 147.0
-custom_colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Controls
-"
-align = 1
 
 [connection signal="pressed" from="GoBackToMenu2" to="." method="_on_GoBackToMenu_pressed"]
