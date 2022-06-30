@@ -22,6 +22,7 @@ const FRAME_TEMPLATE = {
 	spriteSourceSize = {
 		x = TYPE_INT,
 		y = TYPE_INT,
+		w = TYPE_INT,
 		h = TYPE_INT,
 	},
 	sourceSize = {
