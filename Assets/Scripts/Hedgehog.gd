@@ -3,7 +3,7 @@ extends KinematicBody2D
 signal grounded_updated(is_grounded)
 signal change_hh_spawn
 
-var velocity = Vector2()
+var velocity = Vector2(0,0)
 const SPEED = 320
 
 
@@ -19,6 +19,7 @@ onready var jumpTimer = $JumpBufferTimer
 onready var coyoteTimer = $CoyoteTimer
 
 func _process(delta):
+	
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
 		$Sprite.play("Walk")
@@ -34,7 +35,10 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("jump"):
 		jumpTimer.start()
-		
+	
+
+func _physics_process(delta):
+	
 	if is_on_floor():
 		coyoteTimer.start()
 		if !jumpTimer.is_stopped():
@@ -67,6 +71,7 @@ func jump():
 
 func _on_Area2D_body_entered(body):
 	SaveSystem.add_death()
+	$Death.play()
 	emit_signal("change_hh_spawn")
 
 func _on_Spikes_Hedgehog_hurted():

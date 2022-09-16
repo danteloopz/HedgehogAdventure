@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	$HBoxContainer/SettingsTab/Video.grab_focus()
+	pass #$HBoxContainer/SettingsTab/Video.grab_focus()
 
 
 func _on_GoBackToMenu_pressed():

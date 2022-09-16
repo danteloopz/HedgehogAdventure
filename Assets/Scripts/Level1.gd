@@ -13,5 +13,4 @@ func _ready():
 
 
 func _on_Hedgehog_change_hh_spawn():
-	$Hedgehog/Death.play()
 	$Hedgehog.global_position = SaveSystem.data.last_checkpoint + Vector2(0,-40)
