@@ -71,7 +71,6 @@ func jump():
 
 func _on_Area2D_body_entered(body):
 	SaveSystem.add_death()
-	$Death.play()
 	emit_signal("change_hh_spawn")
 
 func _on_Spikes_Hedgehog_hurted():
