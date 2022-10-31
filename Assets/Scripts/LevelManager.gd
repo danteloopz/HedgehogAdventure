@@ -12,3 +12,6 @@ func Scene_Load():
 
 func Save_level():
 	SaveSystem.data.level = counter
+	
+func Counter_change():
+	counter = counter + 1

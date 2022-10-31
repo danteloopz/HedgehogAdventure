@@ -10,7 +10,7 @@ func _on_Spawnpoint_body_entered(body):
 	if interactable == true:
 		$SpawnpointEntered.play()
 		$AnimationPlayer.play("Entered")
-		
+		LevelManager.Counter_change()
 		emit_signal("save_coins")
 		set_collision_mask_bit(0,false)
 		interactable = false
