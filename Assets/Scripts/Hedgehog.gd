@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 signal grounded_updated(is_grounded)
-signal change_hh_spawn
+
 
 var velocity = Vector2(0,0)
 const SPEED = 320
@@ -18,6 +18,7 @@ var is_grounded
 onready var jumpTimer = $JumpBufferTimer
 onready var coyoteTimer = $CoyoteTimer
 
+# warning-ignore:unused_argument
 func _process(delta):
 	
 	if Input.is_action_pressed("right"):
@@ -37,6 +38,7 @@ func _process(delta):
 		jumpTimer.start()
 	
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	
 	if is_on_floor():
@@ -69,10 +71,13 @@ func jump():
 	jumpTimer.stop()
 	coyoteTimer.stop()
 
-func _on_Area2D_body_entered(body):
-	SaveSystem.add_death()
-	emit_signal("change_hh_spawn")
+func _on_Spikes_hedgehog_hurted():
+	_respawn()
+	
+func _on_Area2D_hedgehog_fall():
+	_respawn()
+	
+func _respawn():
+	global_position = SaveSystem.data.last_checkpoint + Vector2(0,0)
 
-func _on_Spikes_Hedgehog_hurted():
-	SaveSystem.add_death()
-	emit_signal("change_hh_spawn")
+

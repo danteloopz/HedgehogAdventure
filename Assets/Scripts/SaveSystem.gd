@@ -34,10 +34,5 @@ func Load_GAME():
 			file.close()
 	LevelManager.Scene_Load()
 
-func add_death():
-	data.deaths += 1
-	print("Death Counter:", data.deaths)
-
-func add_coin():
-	data.coins += 1
-	print("Coin Counter:", data.coins)
+func Save_progress(var coins):
+	data.coins = coins

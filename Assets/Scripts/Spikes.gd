@@ -1,6 +1,7 @@
 extends Area2D
 
-signal Hedgehog_hurted
+signal hedgehog_hurted
 
 func _on_Spikes_body_entered(body):
-	emit_signal("Hedgehog_hurted")
+	$Death.play()
+	emit_signal("hedgehog_hurted")
