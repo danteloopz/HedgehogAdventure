@@ -136,7 +136,12 @@ stream = ExtResource( 5 )
 
 [node name="TransisionScreen" parent="." instance=ExtResource( 4 )]
 
+[node name="Popup" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="finished" from="Exit" to="." method="_on_Exit_finished"]
 [connection signal="transition_end" from="TransisionScreen" to="." method="_on_TransisionScreen_transition_end"]

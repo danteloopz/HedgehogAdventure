@@ -34,21 +34,21 @@ func set_current_selection(_current_selection):
 
 
 func _on_PlayButton_pressed():
-	SaveSystem.Load_GAME()
 	$Select.play()
 	$TransisionScreen.fadein()
 
-
 func _on_SettingsButton_pressed():
 	$Select.play()
-	var Settings = load("res://Assets/Scenes/Settings.tscn").instance()
-	get_tree().current_scene.add_child(Settings)
 
 
 func _on_ExitButton_pressed():
 	$Exit.play()
+
+func _on_Exit_finished():
 	get_tree().quit()
 
-
 func _on_TransisionScreen_transition_end():
-	get_tree().change_scene("res://Assets/Scenes/Level1.tscn")
+	SaveSystem.Load_GAME()
+
+
+
