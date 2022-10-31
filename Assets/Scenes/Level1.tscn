@@ -158,16 +158,6 @@ position = Vector2( 940, 65 )
 [node name="Key" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1758, -24 )
 
-[node name="Spawnpoints" type="Node2D" parent="."]
-visible = false
-position = Vector2( 1170, 162 )
-rotation = -0.00339346
-scale = Vector2( 2, 2 )
-
-[node name="Spawnpoint" parent="Spawnpoints" instance=ExtResource( 11 )]
-rotation = 2.32831e-10
-scale = Vector2( 1, 1 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Blue Sky" type="ParallaxLayer" parent="ParallaxBackground"]

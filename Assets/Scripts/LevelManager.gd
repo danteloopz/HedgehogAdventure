@@ -9,4 +9,6 @@ var Levels = [
 
 func Scene_Load():
 	get_tree().change_scene(Levels[counter])
-	counter = counter + 1
+
+func Save_level():
+	SaveSystem.data.level = counter

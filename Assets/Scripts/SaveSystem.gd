@@ -22,7 +22,7 @@ func Save_Game():
 	if error == OK:
 		file.store_var(data)
 		file.close()
-		LevelManager.Scene_Save()
+		LevelManager.Save_level()
 		get_tree().change_scene("res://Assets/Scenes/Intro.tscn")
 
 func Load_GAME():

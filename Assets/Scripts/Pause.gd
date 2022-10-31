@@ -25,5 +25,4 @@ func set_visible(is_visible):
 func _on_Save_and_exitButton_pressed():
 	set_visible(false)
 	get_tree().paused = false
-	LevelManager.Scene_Save()
 	SaveSystem.Save_Game()
