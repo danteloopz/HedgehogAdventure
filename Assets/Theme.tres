@@ -23,6 +23,7 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 19
@@ -94,6 +95,8 @@ Button/styles/focus = SubResource( 3 )
 Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 5 )
 Button/styles/pressed = SubResource( 6 )
+GridContainer/constants/hseparation = 0
+GridContainer/constants/vseparation = 0
 HBoxContainer/constants/separation = 13
 Label/colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
@@ -104,7 +107,7 @@ Label/constants/shadow_offset_y = 1
 Label/fonts/font = SubResource( 13 )
 Label/styles/normal = null
 OptionButton/colors/font_color = Color( 1, 0.921569, 0.854902, 1 )
-OptionButton/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+OptionButton/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.2 )
 OptionButton/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
 OptionButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )

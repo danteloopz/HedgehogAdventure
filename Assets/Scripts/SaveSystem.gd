@@ -23,7 +23,7 @@ func Save_Game():
 		file.store_var(data)
 		file.close()
 		LevelManager.Save_level()
-		get_tree().change_scene("res://Assets/Scenes/Intro.tscn")
+		get_tree().change_scene("res://Assets/Scenes/TitleMenu.tscn")
 
 func Load_GAME():
 	var file = File.new()

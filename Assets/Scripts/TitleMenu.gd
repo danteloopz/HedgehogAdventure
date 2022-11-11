@@ -9,6 +9,7 @@ var current_selection = 0
 
 
 func _ready():
+	MusicController.play_music()
 	Pause.is_pausable = false
 	$VBoxContainer/PlayButton.grab_focus()
 	set_current_selection(0)
@@ -39,6 +40,8 @@ func _on_PlayButton_pressed():
 
 func _on_SettingsButton_pressed():
 	$Select.play()
+	$Popup.show()
+	$Popup/Tabs/HBoxContainer/Video.grab_focus()
 
 
 func _on_ExitButton_pressed():
@@ -50,5 +53,24 @@ func _on_Exit_finished():
 func _on_TransisionScreen_transition_end():
 	SaveSystem.Load_GAME()
 
+func _on_Video_pressed():
+	$Popup/Tabs/SettingsContainer/VideoSettings.show()
+	$Popup/Tabs/SettingsContainer/AudioSettings.hide()
+	$Popup/Tabs/SettingsContainer/Controls.hide()
 
 
+func _on_Audio_pressed():
+	$Popup/Tabs/SettingsContainer/VideoSettings.hide()
+	$Popup/Tabs/SettingsContainer/AudioSettings.show()
+	$Popup/Tabs/SettingsContainer/Controls.hide()
+
+
+func _on_Controlls_pressed():
+	$Popup/Tabs/SettingsContainer/VideoSettings.hide()
+	$Popup/Tabs/SettingsContainer/AudioSettings.hide()
+	$Popup/Tabs/SettingsContainer/Controls.show()
+
+
+func _on_BackButton_pressed():
+	$VBoxContainer/ExitButton.grab_focus()
+	$Popup.hide()
