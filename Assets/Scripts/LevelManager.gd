@@ -1,6 +1,6 @@
 extends Node
 
-var counter = 0
+var current_level = 0
 
 var Levels = [
 	"res://Assets/Scenes/Level1.tscn",
@@ -8,10 +8,10 @@ var Levels = [
 ]
 
 func Scene_Load():
-	get_tree().change_scene(Levels[counter])
+	get_tree().change_scene(Levels[current_level])
 
 func Save_level():
-	SaveSystem.data.level = counter
+	SaveSystem.data.level = current_level
 	
-func Counter_change():
-	counter = counter + 1
+func Change_level():
+	current_level = current_level + 1

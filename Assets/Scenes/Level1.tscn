@@ -105,7 +105,7 @@ current = true
 zoom = Vector2( 2, 2 )
 limit_left = 5
 limit_top = -450
-limit_right = 2353
+limit_right = 2312
 limit_bottom = 385
 limit_smoothed = true
 drag_margin_h_enabled = true
@@ -235,6 +235,7 @@ autostart = true
 
 [node name="Spawnpoint" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2278, -243 )
+rotation = -0.0302214
 
 [connection signal="grounded_updated" from="Hedgehog" to="Hedgehog/Camera2D" method="_on_Hedgehog_grounded_updated"]
 [connection signal="hedgehog_hurted" from="Spikes/Spikes" to="Hedgehog" method="_on_Spikes_hedgehog_hurted"]
@@ -249,4 +250,5 @@ position = Vector2( 2278, -243 )
 [connection signal="coin_collected" from="Coins/Coin6" to="HUD" method="_on_coin_collected"]
 [connection signal="key_collected" from="Key" to="HUD" method="_on_key_collected"]
 [connection signal="hedgehog_fall" from="Area2D" to="Hedgehog" method="_on_Area2D_hedgehog_fall"]
+[connection signal="transition_end" from="TransisionScreen" to="." method="_on_TransisionScreen_transition_end"]
 [connection signal="save_coins" from="Spawnpoint" to="HUD" method="_on_Spawnpoint_save_coins"]
